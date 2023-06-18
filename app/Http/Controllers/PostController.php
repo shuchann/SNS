@@ -11,4 +11,13 @@ class PostController extends Controller
     {
         return view('postslist.index')->with(['posts' => $post->get()]);
     }
+    public function show(Post $post)
+    {
+        return view('postslist.show')->with(['post' => $post]);
+     //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+    }
+    public function create()
+    {
+        return view('posts.create');
+    }
 }
