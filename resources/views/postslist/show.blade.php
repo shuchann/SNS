@@ -10,10 +10,37 @@
         <h1 class="title">
             {{ $post->title }}
         </h1>
-        <div class='content'>
-            <div class='content__post'>
-                <h3>本文</h3>
-                <p class='body'>{{ $post->body }}</p>
+        <div>
+            <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+        </div>
+        <div class='kyapusyon'>
+            <div class='kyapusyon__post'>
+                <p class='kyapusyon'>{{ $post->kyapusyon }}</p>
+            </div>
+        </div>
+        <div class='hat'>
+            <div class='hat__post'>
+                <p class='hat'>{{ $post->hat }}</p>
+            </div>
+        </div>
+        <div class='tops'>
+            <div class='tops__post'>
+                <p class='tops'>{{ $post->tops }}</p>
+            </div>
+        </div>
+        <div class='pants'>
+            <div class='pants__post'>
+                <p class='pants'>{{ $post->pants }}</p>
+            </div>
+        </div>
+        <div class='shoes'>
+            <div class='shoes__post'>
+                <p class='shoes'>{{ $post->shoes }}</p>
+            </div>
+        </div>
+        <div class='accessories'>
+            <div class='accessories__post'>
+                <p class='accessories'>{{ $post->accessories }}</p>
             </div>
         </div>
         <div class="footer">
