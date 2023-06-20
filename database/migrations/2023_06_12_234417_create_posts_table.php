@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('title', 30);
             $table->string('image_url');
             $table->string('kyapusyon', 200);
-            $table->string('hat', 50);
-            $table->string('tops', 50);
-            $table->string('pants', 50);
-            $table->string('shoes', 50);
-            $table->string('accessories', 50);
+            $table->string('hat', 50)->nullable();;
+            $table->string('tops', 50)->nullable();;
+            $table->string('pants', 50)->nullable();;
+            $table->string('shoes', 50)->nullable();;
+            $table->string('accessories', 50)->nullable();;
             $table->timestamps();
         });
     }
