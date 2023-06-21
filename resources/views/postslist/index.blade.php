@@ -17,6 +17,7 @@
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
+                    <img src="{{$post->image_url}}" alt="">
                 </div>
                 @endforeach
             </div>
