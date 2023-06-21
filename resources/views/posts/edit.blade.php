@@ -14,6 +14,11 @@
                     <h2>投稿名</h2>
                     <input type="text" name="post[title]" placeholder="タイトル" value="{{ $post->title }}">
                 </div>
+                <div class="image">
+                　<h2>画像</h2>
+                　<img src="{{$post->image_url}}" alt="">
+                　<input type="file" name="image">
+                </div>
                 <div class="kyapusyon">
                     <h2>キャプション</h2>
                     <textarea name="post[kyapusyon]" placeholder="○○のトップスを着てみました‼">{{ $post->kyapusyon }}</textarea>

@@ -20,6 +20,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'id' => 1,
             'title' => '洋服',
+            'image_url' => '写真',
             'kyapusyon' => '説明',
             'hat' => '帽子',
             'tops' => '上着',
