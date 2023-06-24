@@ -3,8 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
-        <header class="header">SHUTOOS</header>
-        <link rel="stylesheet" href="/css/edit.css">
+    <header class="header">
+            <h1 class="header_title">SHUTOOS</h1>
+            <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+            <form method="POST" action="{{ route('logout') }}">
+            @csrf
+        <button type="submit" class="button">LOG OUT</button>
+        </form>
+    </header>        <link rel="stylesheet" href="/css/edit.css">
 
     </head>
     <body>
@@ -18,12 +24,12 @@
                     <input type="text" name="post[title]" placeholder="タイトル" value="{{ $post->title }}">
                 </div>
                 <div class="image">
-                　<h2>画像</h2>
+                　<h2>IMAGE</h2>
                 　<img src="{{$post->image_url}}" alt="">
                 　<input type="file" name="image">
                 </div>
                 <div class="kyapusyon">
-                    <h2>キャプション</h2>
+                    <h2>KYAPUSYON</h2>
                     <textarea name="post[kyapusyon]" placeholder="○○のトップスを着てみました‼">{{ $post->kyapusyon }}</textarea>
                 </div>
                 <h1>ブランド及び購入店</h1>
@@ -39,7 +45,7 @@
                     <h2>ACCESSORIES：</h2>
                     <textarea name="post[accessories]" placeholder="ブランド及び購入店">{{ $post->accessories }}</textarea>
                 </div>
-                <input type="submit" value="編集投稿">
+                <input type="submit" class="button" value="REPOSTS">
             </form>
         <div class="footer">
             <a href="/">RETURN</a>

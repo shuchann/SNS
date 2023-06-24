@@ -8,9 +8,7 @@
     <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
     <form method="POST" action="{{ route('logout') }}">
             @csrf
-            
         <button type="submit" class="button">LOG OUT</button>
-            
         </form>
     </header>
     <link rel="stylesheet" href="/css/index.css">
@@ -18,8 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
     <body>
-        <h1 >POSTS LIST</h1>
-        <div>
+        <h1 class="title">POSTS LIST</h1>
+        <div class="search">
             <form action="{{ route('search.search') }}" method="POST">
                 @csrf
                 <input type="text" name="keyword" value="{{ $keyword }}" placeholder="検索ワードを入力">
@@ -29,8 +27,8 @@
         <div class='posts'>
             @forelse ($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                    <h2 class='title_link'>
+                        <a href="/posts/{{ $post->id }}">POSTS NAME：{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
                     <img src="{{ $post->image_url }}" alt="">
