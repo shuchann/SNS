@@ -3,40 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
+        <header class="header">SHUTOOS</header>
+        <link rel="stylesheet" href="/css/create.css">
     </head>
-    <body>
-        <h1>投稿</h1>
-        <form action="/posts" method="POST"enctype="multipart/form-data">
+    <body>        <form action="/posts" method="POST"enctype="multipart/form-data">
             @csrf
             <div class="title">
-                <h2>投稿名</h2>
+                <h1>NEW POSTS NAME</h1>
                 <input type="text" name="post[title]" placeholder="タイトル"/>
             </div>
             <div class="image">
-                <h2>画像</h2>
+                <h2>IMAGE</h2>
                 <input type="file" name="image">
             </div>
             <div class="kyapusyon">
-                <h2>キャプション</h2>
+                <h2>KYAPUSYON</h2>
                 <textarea name="post[kyapusyon]" placeholder="○○のトップスを着てみました‼"></textarea>
             </div>
-            <h2>ブランド及び購入店</h2>
+            <h1>BRAND NAME  or  PURCHASE STORE</h1>
             <div class="burando">
-                <h4>HAT：</h4>
+                <h2>HAT：</h2>
                 <textarea name="post[hat]" placeholder="ブランド及び購入店"></textarea>
-                <h4>TOPS</h4>
+                <h2>TOPS：</h2>
                 <textarea name="post[tops]" placeholder="ブランド及び購入店"></textarea>
-                <h4>PANTS</h4>
+                <h2>PANTS：</h2>
                 <textarea name="post[pants]" placeholder="ブランド及び購入店"></textarea>
-                <h4>SHOES</h4>
+                <h2>SHOES：</h2>
                 <textarea name="post[shoes]" placeholder="ブランド及び購入店"></textarea>
-                <h4>ACCESSORIES</h4>
+                <h2>ACCESSORIES：</h2>
                 <textarea name="post[accessories]" placeholder="ブランド及び購入店"></textarea>
             </div>
-            <input type="submit" value="投稿"/>
+            <input type="submit" class="posts_btn" value="POSTS"/>
         </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/">RETURN</a>
         </div>
     </body>
 </html>
