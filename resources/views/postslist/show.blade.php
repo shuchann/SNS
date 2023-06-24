@@ -2,8 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>みんなの投稿</title>
-        <header class="header">SHUTOOS</header>
+        <title>投稿詳細画面</title>
+        <header class="header">
+            <h1 class="header_title">SHUTOOS</h1>
+            <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+            <form method="POST" action="{{ route('logout') }}">
+            @csrf
+        <button type="submit" class="button">LOG OUT</button>
+        </form>
+    </header>
 
         <link rel="stylesheet" href="/css/show.css">
 
@@ -15,7 +22,7 @@
             TITLE：{{ $post->title }}
         </h1>
         <div>
-            <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            <img class="img" src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
         </div>
         <div class='kyapusyon'>
             <div class='kyapusyon__post'>
@@ -50,7 +57,7 @@
         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="button" onclick="deletePost({{ $post->id }})">DELETE</button> 
+            <button type="button" class="button"　onclick="deletePost({{ $post->id }})">DELETE</button> 
         </form>
         <div class="edit">
             <a href="/posts/{{ $post->id }}/edit">EDIT</a>
