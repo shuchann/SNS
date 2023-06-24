@@ -1,4 +1,4 @@
-/*投稿一覧画面*/
+/*編集画面*/
 
 header{
     text-align: center;
@@ -12,12 +12,4 @@ body{
     text-align: center;
     font-family: Impact;
     background-color: #F5F5F5;
-}
-
-.newposts_btn{
-    font-family: Impact;
-}
-
-.search_btn{
-    font-family: Impact;
 }

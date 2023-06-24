@@ -3,56 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title>みんなの投稿</title>
+        <header class="header">SHUTOOS</header>
+
+        <link rel="stylesheet" href="/css/show.css">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
         <h1 class="title">
-            {{ $post->title }}
+            TITLE：{{ $post->title }}
         </h1>
         <div>
             <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
         </div>
         <div class='kyapusyon'>
             <div class='kyapusyon__post'>
-                <p class='kyapusyon'>{{ $post->kyapusyon }}</p>
+                <h2 class='kyapusyon'>KYAPUSYON：{{ $post->kyapusyon }}</h2>
             </div>
         </div>
         <div class='hat'>
             <div class='hat__post'>
-                <p class='hat'>{{ $post->hat }}</p>
+                <h2 class='hat'>HAT:{{ $post->hat }}</h2>
             </div>
         </div>
         <div class='tops'>
             <div class='tops__post'>
-                <p class='tops'>{{ $post->tops }}</p>
+                <h2 class='tops'>TOPS:{{ $post->tops }}</h2>
             </div>
         </div>
         <div class='pants'>
             <div class='pants__post'>
-                <p class='pants'>{{ $post->pants }}</p>
+                <h2 class='pants'>PANTS：{{ $post->pants }}</h2>
             </div>
         </div>
         <div class='shoes'>
             <div class='shoes__post'>
-                <p class='shoes'>{{ $post->shoes }}</p>
+                <h2 class='shoes'>SHOES：{{ $post->shoes }}</h2>
             </div>
         </div>
         <div class='accessories'>
             <div class='accessories__post'>
-                <p class='accessories'>{{ $post->accessories }}</p>
+                <h2 class='accessories'>ACCESSORIES：{{ $post->accessories }}</h2>
             </div>
         </div>
         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+            <button type="button" onclick="deletePost({{ $post->id }})">DELETE</button> 
         </form>
         <div class="edit">
-            <a href="/posts/{{ $post->id }}/edit">編集</a>
+            <a href="/posts/{{ $post->id }}/edit">EDIT</a>
         </div>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/">RETURN</a>
         </div>
         <script>
             function deletePost(id) {
