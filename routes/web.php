@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts', [PostController::class, 'store']);
     Route::get('/posts/{post}', [PostController::class ,'show'])->name('postslist.show');
     Route::get('/', [PostController::class, 'index'])->name('postslist.index');
+    Route::post('/search', [PostController::class, 'search'])->name('search.search');
+
     Route::put('/posts/{post}', [PostController::class, 'update']);
     Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
     Route::delete('/posts/{post}', [PostController::class,'delete']);

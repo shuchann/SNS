@@ -60,6 +60,7 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
+    
     public function search(Request $request)
     {
         $keyword = $request -> input('keyword');
@@ -72,6 +73,6 @@ class PostController extends Controller
         
         $posts = $query -> get();
         
-        return view('index', compact('posts', 'keyword'));
+        return view('search.search', compact('posts', 'keyword'));
     }
 }
