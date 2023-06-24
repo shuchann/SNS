@@ -1,11 +1,22 @@
 /*投稿一覧画面*/
+html,body{
+    margin: 0;
+}
+
 
 header{
+    display: flex;
+    
+    align-items:center;
     text-align: center;
     font-family: Impact;
-    font-size: 40px;
+    font-size: 20px;
     border-bottom: 3px solid black;
     background-color: #E6E6FA;
+}
+
+.header_title{
+    margin-left: 20px;
 }
 
 body{
@@ -14,8 +25,12 @@ body{
     background-color: #F5F5F5;
 }
 
-.newposts_btn{
+.button{
     font-family: Impact;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+    margin-left: 10px;
 }
 
 .search_btn{

@@ -3,16 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>みんなの投稿</title>
-    <header class="header">SHUTOOS
-    <button type="button" class="newposts_btn" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+    <header class="header">
+    <h1 class="header_title">SHUTOOS</h1>
+    <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
     <form method="POST" action="{{ route('logout') }}">
             @csrf
             
-            <x-dropdown-link :href="route('logout')"
-                onclick="event.preventDefault();
-                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
+        <button type="submit" class="button">LOG OUT</button>
+            
         </form>
     </header>
     <link rel="stylesheet" href="/css/index.css">
