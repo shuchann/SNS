@@ -10,23 +10,17 @@
             @csrf
         <button type="submit" class="button">LOG OUT</button>
         </form>
-    <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
     </header>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/purohu.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
     <body>
+        {{ $user->name }}
+        
         <h1 class="title">POSTS LIST</h1>
-        <div class="search">
-            <form action="{{ route('search.search') }}" method="POST">
-                @csrf
-                <input type="text" name="keyword" value="{{ $keyword }}" placeholder="検索ワードを入力">
-                <input type="submit" class="search_btn" value="SEARCH">
-            </form>
-        </div>
         <div class='posts'>
-            @forelse ($posts as $post)
+            @forelse ($user->posts as $post)
                 <div class='post'>
                     <h2 class='title_link'>
                         <a href="/posts/{{ $post->id }}">POSTS NAME：{{ $post->title }}</a>

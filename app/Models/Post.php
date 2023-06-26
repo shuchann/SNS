@@ -19,4 +19,10 @@ class Post extends Model
     'shoes',
     'accessories',
     ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }

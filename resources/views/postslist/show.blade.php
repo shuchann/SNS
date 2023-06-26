@@ -57,10 +57,11 @@
         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="button" class="button"　onclick="deletePost({{ $post->id }})">DELETE</button> 
+            <button type="submit" class="button"　onclick="deletePost({{ $post->id }})">DELETE</button> 
         </form>
         <div class="edit">
             <a href="/posts/{{ $post->id }}/edit">EDIT</a>
+            <button type="button" onclick="location.href='{{ route('edit',['post' => $post->id]) }}'">EDIT</button>
         </div>
         <div class="footer">
             <a href="/">RETURN</a>
