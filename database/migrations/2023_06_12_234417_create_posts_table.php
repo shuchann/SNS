@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreignId('user_id')->constrained();
             $table->string('title', 30);
             $table->string('image_url');
             $table->string('kyapusyon', 200);
