@@ -6,11 +6,12 @@
     <header class="header">
     <h1 class="header_title">SHUTOOS</h1>
     <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+    <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
+
     <form method="POST" action="{{ route('logout') }}">
             @csrf
         <button type="submit" class="button">LOG OUT</button>
         </form>
-    <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
     </header>
     <link rel="stylesheet" href="/css/index.css">
     <!-- Fonts -->

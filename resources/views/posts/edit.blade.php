@@ -6,6 +6,7 @@
     <header class="header">
             <h1 class="header_title">SHUTOOS</h1>
             <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+            <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
         <button type="submit" class="button">LOG OUT</button>
@@ -45,9 +46,10 @@
                     <h2>ACCESSORIES：</h2>
                     <textarea name="post[accessories]" placeholder="ブランド及び購入店">{{ $post->accessories }}</textarea>
                 </div>
-                <input type="submit" class="button" value="REPOSTS">
             </form>
-        <div class="footer">
-            <a href="/">RETURN</a>
-        </div>
+        <footer>
+            <input type="submit" class="button" value="REPOSTS">
+            <button type="submit" class="button" onclick="location.href='{{ route('postslist.index') }}'">RETURN</button>
+        </footer>
+    </body>
 </html>

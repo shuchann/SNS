@@ -6,6 +6,7 @@
         <header class="header">
             <h1 class="header_title">SHUTOOS</h1>
             <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+            <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
         <button type="submit" class="button">LOG OUT</button>
@@ -54,18 +55,19 @@
                 <h2 class='accessories'>ACCESSORIES：{{ $post->accessories }}</h2>
             </div>
         </div>
-        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="button"　onclick="deletePost({{ $post->id }})">DELETE</button> 
-        </form>
-        <div class="edit">
-            <a href="/posts/{{ $post->id }}/edit">EDIT</a>
-            <button type="button" onclick="location.href='{{ route('edit',['post' => $post->id]) }}'">EDIT</button>
-        </div>
-        <div class="footer">
-            <a href="/">RETURN</a>
-        </div>
+        <footer>
+            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="button"　onclick="deletePost({{ $post->id }})">DELETE</button> 
+            </form>
+            <div class="edit">
+                <button type="button" class="button" onclick="location.href='{{ route('edit',['post' => $post->id]) }}'">EDIT</button>
+            </div>
+            <div class="footer">
+                <button type="submit" class="button" onclick="location.href='{{ route('postslist.index') }}'">RETURN</button>
+            </div>
+        </footer>
         <script>
             function deletePost(id) {
                 'use strict'
