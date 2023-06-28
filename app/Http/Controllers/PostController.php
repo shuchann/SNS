@@ -3,37 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Nice;
 use Illuminate\Http\Request;
 use Cloudinary;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
-{   
+class PostController extends Controller{   
     // 検索
     public function index(Post $post, Request $request)//インポートしたPostをインスタンス化して$postとして使用。
     {
-        $keyword = $request -> input('keyword');
-        
-        $query = Post::query();
-        
-        if(!empty($keyword)) {
-            $query -> where('title', 'LIKE', "%{$keyword}%");
-        }
-        
-        $posts = $query -> get();
-        
-        return view('postslist.index', compact('posts', 'keyword'));
+        $posts = Post::all();
+        return view('postslist.index')->with(['posts' => $posts]);
     }
-    
+
     // 投稿詳細
     public function show(Post $post)
     {
         return view('postslist.show')->with(['post' => $post]);
      //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+         $nice=Nice::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+            return view('post.show', compact('post', 'nice'));
     }
-    //public function index(Request $request) //検索
-    
+
     //新規投稿
     public function create() 
     {
@@ -53,7 +45,8 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
-    public function edit(Post $post) //編集
+    //編集
+    public function edit(Post $post)
     {
         return view('posts.edit')->with(['post' => $post]);
     }
@@ -65,7 +58,8 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
-    public function delete(Post $post) //削除
+    //削除
+    public function delete(Post $post)
     {
         $post->delete();
         return redirect('/');
@@ -87,6 +81,33 @@ class PostController extends Controller
         return view('search.search', compact('posts', 'keyword'));
     }
     
-    // プロフィール
+    //いいね機能
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+    }
+    
+    public function like($id)
+    {
+        $nice = new Nice();
 
+        $nice->post_id = $id;
+        $nice->user_id = Auth::id();
+        $nice->save();
+        
+        session()->flash('success', 'You Niced the Posts.');
+    
+        return redirect()->back();
+    }
+    
+    public function unlike($id)
+    {
+        $nice = Nice::where('post_id', $id)->where('user_id', Auth::id())->first();
+        $nice->delete();
+
+        session()->flash('success', 'You Unniced the Posts.');
+        
+        return redirect()->back();
+    }
+    
 }
