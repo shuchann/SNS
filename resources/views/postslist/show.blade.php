@@ -62,6 +62,12 @@
                 <h2 class='accessories'>ACCESSORIES：{{ $post->accessories }}</h2>
             </div>
         </div>
+        {{--<div>
+            <h2>Comments</h2>
+            @foreach ($comments as $comment)
+                <p>{{ $comment->comment }}</p>
+            @endforeach
+        </div>--}}
         
         <footer>
             <!--投稿削除ボタン-->

@@ -3,17 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>新規投稿画面</title>
+    </head>
+    <body> 
         <header class="header">
             <h1 class="header_title">SHUTOOS</h1>
             <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+            <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
             <form method="POST" action="{{ route('logout') }}">
-            @csrf
-        <button type="submit" class="button">LOG OUT</button>
-        </form>
-    </header>
+                @csrf
+                <button type="submit" class="button">LOG OUT</button>
+            </form>
+        </header>
         <link rel="stylesheet" href="/css/create.css">
-    </head>
-    <body>        <form action="/posts" method="POST"enctype="multipart/form-data">
+        
+        <form action="/posts" method="POST"enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h1>NEW POSTS NAME</h1>

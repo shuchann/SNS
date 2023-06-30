@@ -29,7 +29,16 @@
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
-                    <img src="{{ $post->image_url }}" alt="">
+                    <img class="img" src="{{ $post->image_url }}" alt="">
+                    
+                    <!--いいね機能-->
+                    {{--<div>
+                    @if($post->is_nice_by_auth_user())
+                        <a href="{{ route('posts.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
+                     @else
+                        <a href="{{ route('posts.like', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
+                    @endif
+                    </div>--}}
                 </div>
             @empty
                 <p>関連投稿がありません。</p>

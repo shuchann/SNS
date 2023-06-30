@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Nice;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Cloudinary;
 use App\Http\Requests\PostRequest;
@@ -22,8 +23,9 @@ class PostController extends Controller{
     {
         return view('postslist.show')->with(['post' => $post]);
      //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
-         $nice=Nice::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
-            return view('post.show', compact('post', 'nice'));
+        // $comments = Comment::where('post_id', $post->id)->get();
+        $nice=Nice::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+            return view('post.show', compact('post', 'nice')); //'comments'
     }
 
     //新規投稿
@@ -109,5 +111,11 @@ class PostController extends Controller{
         
         return redirect()->back();
     }
+    // コメント機能
+    // public function show(Post $post)
+    // {
+    //     $comments = Comment::where('post_id', $post->id)->get();
+    //     return view('posts.show', compact('post', 'comments'));
+    // }
     
 }
