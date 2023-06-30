@@ -3,22 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>みんなの投稿</title>
+</head>
+<body>
     <header class="header">
     <h1 class="header_title">SHUTOOS</h1>
-    <!--新規投稿ボタン-->
-    <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
-    <!--プロフィール画面に移動するボタン-->
-    <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
     
      @auth
+        <!--新規投稿ボタン-->
+        <button type="button" class="button" onclick="location.href='{{ route('create') }}' ">NEW POSTS</button>
+        <!--プロフィール画面に移動するボタン-->
+        <button type="button" class="button" onclick="location.href='{{ route('purohu') }}'">PROFILE</button>
+        <!--ログインボタン-->
          <form method="POST" action="{{ route('logout') }}">
                 @csrf
             <button type="submit" class="button">LOG OUT</button>
         </form>
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                <!--ログインボタン-->
+                <button type="button" class="button" onclick="location.href='{{ route('login') }}'">LOG IN</button>
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <!--新規登録ボタン-->
+                <button type="button" class="button" onclick="location.href='{{ route('register') }}'">SIGN UP</button>
         @endif
     @endauth
     </header>
@@ -26,8 +31,6 @@
     <link rel="stylesheet" href="/css/index.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-</head>
-    <body>
         <h1 class="title">POSTS LIST</h1>
         
         <!--検索機能-->
@@ -50,19 +53,27 @@
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
                     <img src="{{ $post->image_url }}" alt="">
+                    
+                    <!--いいね機能-->
+                    <div>
+                    @if($post->is_nice_by_auth_user())
+                        <a href="{{ route('posts.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
+                     @else
+                        <a href="{{ route('posts.like', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
+                    @endif
+                    </div>
+                    
                 </div>
             @empty
                 <p>関連投稿がありません。</p>
             @endforelse
         </div>
-        <!--いいね機能-->
-        <div>
-        @if($post->is_nice_by_auth_user())
-            <a href="{{ route('posts.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
-        
-        @else
-            <a href="{{ route('posts.like', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->nice->count() }}</span></a>
-        @endif
-        </div>
+        <!--コメント機能-->
+        {{--<form action="{{ route('comments.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <textarea name="comment" placeholder="Add a comment"></textarea>
+            <button type="submit">Submit</button>
+        </form>--}}
     </body>
 </html>

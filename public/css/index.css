@@ -1,6 +1,7 @@
 /*投稿一覧画面*/
 html,body{
     margin: 0;
+    /*width:calc(100% / 3);*/
 }
 
 
@@ -47,7 +48,8 @@ body{
 
 .search {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    margin-right: 50px;
 }
 
 .search input[type="text"] {

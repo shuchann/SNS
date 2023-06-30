@@ -33,6 +33,14 @@ body{
     margin-left: 10px;
 }
 
-.post img{
+.img{
     width: 40%;
+}
+
+h2 {
+  display: inline-block;
+}
+h2:after {
+  content: "\A";
+  white-space: pre;
 }

@@ -26,7 +26,7 @@
                 </div>
                 <div class="image">
                 　<h2>IMAGE</h2>
-                　<img src="{{$post->image_url}}" alt="">
+                　<img class="img" src="{{$post->image_url}}" alt="">
                 　<input type="file" name="image">
                 </div>
                 <div class="kyapusyon">
@@ -34,21 +34,30 @@
                     <textarea name="post[kyapusyon]" placeholder="○○のトップスを着てみました‼">{{ $post->kyapusyon }}</textarea>
                 </div>
                 <h1>ブランド及び購入店</h1>
-                <div class="burando">
+                <div>
                     <h2>HAT：</h2>
                     <textarea name="post[hat]" placeholder="ブランド及び購入店">{{ $post->hat }}</textarea>
+                </div></br>
+                <div>
                     <h2>TOPS：</h2>
                     <textarea name="post[tops]" placeholder="ブランド及び購入店">{{ $post->tops }}</textarea>
+                </div></br>
+                <div>
                     <h2>PANTS：</h2>
                     <textarea name="post[pants]" placeholder="ブランド及び購入店">{{ $post->pants }}</textarea>
+                </div></br>
+                <div>
                     <h2>SHOES：</h2>
                     <textarea name="post[shoes]" placeholder="ブランド及び購入店">{{ $post->shoes }}</textarea>
+                </div></br>
+                <div>
                     <h2>ACCESSORIES：</h2>
                     <textarea name="post[accessories]" placeholder="ブランド及び購入店">{{ $post->accessories }}</textarea>
-                </div>
+                </div></br>
+                
+                <input type="submit" class="button" value="REPOSTS"> <!--ここだと思う-->
             </form>
         <footer>
-            <input type="submit" class="button" value="REPOSTS">
             <button type="submit" class="button" onclick="location.href='{{ route('postslist.index') }}'">RETURN</button>
         </footer>
     </body>
